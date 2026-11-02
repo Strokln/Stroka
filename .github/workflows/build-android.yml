@@ -26,16 +26,16 @@ jobs:
         run: JNI_DIR="$PWD/toolchains/out/jniLibs" native/prebuilt.sh fetch
       - name: Build engine from lockfile
         run: js/build-engine.sh
-      - name: Build APK and test locale configuration
+      - name: Build APK and validate Russian resources
         run: |
           ./gradlew :app:assembleRelease -Pdsh.nativeOut=../toolchains/out/jniLibs -Pdsh.engineOut=../toolchains/out/engine --stacktrace
-          ./gradlew :app:testReleaseUnitTest --tests '*LocalesConfigTest' -Pdsh.nativeOut=../toolchains/out/jniLibs -Pdsh.engineOut=../toolchains/out/engine --stacktrace
+          python3 tools/check-russian-resources.py
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: dsh-0.3.7-ru.1-build
           path: |
             app/build/outputs/apk/release/*.apk
-            app/build/test-results/testReleaseUnitTest/*.xml
             toolchains/out/engine/engine-version.txt
             toolchains/out/engine/engine.sha256
           if-no-files-found: error
