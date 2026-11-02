@@ -9,10 +9,10 @@ import java.io.File
 
 class UpdateManifestTest {
     private val sha = "aa1b6d28eeed618be26a6dd35c247f4be8378dfbc5ba5f56f1454f0faf0b796a"
-    private val signer = "2b37a375ead19476e5d0d9e38920032ea9822e880dcc7540a14e5ab6ac1f4f69"
+    private val signer = "a36e75295012cd85eac06a1a2fdfc7b224d579f394ffbd91ed8b5973a87bc269"
 
     private fun manifest(
-        format: String = "1", code: String = "22", minSdk: String = "29", urls: String = """["https://github.com/jackwener/DSH-Android/releases/download/v0.3.4/a.apk"]""",
+        format: String = "1", code: String = "22", minSdk: String = "29", urls: String = """["https://github.com/Strokln/Stroka/releases/download/v0.3.4/a.apk"]""",
         apkSha: String = "\"$sha\"", signerSha: String = "\"$signer\"", notes: String = """{"zh":"中文说明","en":"English notes"}""", extra: String = "",
     ) = """{"format":$format,"packageName":"io.github.jackwener.dsh","versionCode":$code,"versionName":"0.3.4","minSdk":$minSdk,
         "apk":{"name":"a.apk","size":100,"sha256":$apkSha,"urls":$urls},"signerSha256":$signerSha,"notes":$notes,"publishedAt":"2026-11-01T00:00:00Z"$extra}"""
@@ -25,7 +25,7 @@ class UpdateManifestTest {
         assertEquals(22L, m.versionCode)
         assertEquals("0.3.4", m.versionName)
         assertEquals(29, m.minSdk)
-        assertEquals(UpdateManifest.Apk("a.apk", 100, sha, listOf("https://github.com/jackwener/DSH-Android/releases/download/v0.3.4/a.apk")), m.apk)
+        assertEquals(UpdateManifest.Apk("a.apk", 100, sha, listOf("https://github.com/Strokln/Stroka/releases/download/v0.3.4/a.apk")), m.apk)
         assertEquals(signer, m.signerSha256)
         assertEquals("2026-11-01T00:00:00Z", m.publishedAt)
     }
@@ -84,14 +84,14 @@ class UpdateManifestTest {
         assertTrue("run from the app module: ${f.absolutePath}", f.isFile)
         val m = UpdateManifest.parse(f.readText(), "io.github.jackwener.dsh")
         assertEquals(signer, m.signerSha256)
-        assertTrue(m.apk.urls.first().startsWith("https://github.com/jackwener/DSH-Android/releases/download/v${m.versionName}/"))
-        assertTrue(m.notes.keys.containsAll(listOf("zh", "en")))
+        assertTrue(m.apk.urls.first().startsWith("https://github.com/Strokln/Stroka/releases/download/v${m.versionName}/"))
+        assertTrue(m.notes.keys.containsAll(listOf("ru", "en")))
     }
 
     @Test fun sourcesStartWithTheReleaseAssetAndAreHttps() {
-        assertEquals("https://github.com/jackwener/DSH-Android/releases/latest/download/update.json", UpdateManifest.SOURCES.first())
+        assertEquals("https://github.com/Strokln/Stroka/releases/latest/download/update.json", UpdateManifest.SOURCES.first())
         assertTrue(UpdateManifest.SOURCES.all { it.startsWith("https://") })
-        assertTrue(UpdateManifest.SOURCES.any { it.startsWith("https://cdn.jsdelivr.net/gh/jackwener/DSH-Android@main/update/latest.json") })
+        assertTrue(UpdateManifest.SOURCES.any { it.startsWith("https://cdn.jsdelivr.net/gh/Strokln/Stroka@main/update/latest.json") })
     }
 
     @Test fun policyChecksOncePerDay() {

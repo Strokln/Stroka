@@ -28,7 +28,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PACKAGE = "io.github.jackwener.dsh"
-DEFAULT_REPO = "jackwener/DSH-Android"
+DEFAULT_REPO = "Strokln/Stroka"
 
 
 def die(msg):
@@ -116,6 +116,7 @@ def sha256(path):
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("apk", type=Path)
+    p.add_argument("--notes-ru")
     p.add_argument("--notes-zh")
     p.add_argument("--notes-en")
     p.add_argument("--tag", help="release tag (default v<versionName>)")
@@ -143,7 +144,7 @@ def main():
     for u in urls:
         if not u.startswith("https://"):
             die(f"not an https URL: {u}")
-    note_map = {k: v for k, v in (("zh", notes(a.notes_zh)), ("en", notes(a.notes_en))) if v}
+    note_map = {k: v for k, v in (("ru", notes(a.notes_ru)), ("en", notes(a.notes_en)), ("zh", notes(a.notes_zh))) if v}
     published = a.published_at or datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
     manifest = {

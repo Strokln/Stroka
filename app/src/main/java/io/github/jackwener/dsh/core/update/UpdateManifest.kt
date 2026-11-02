@@ -23,7 +23,7 @@ data class UpdateManifest(
     val apk: Apk,
     /** SHA-256 of the release signing certificate (lowercase hex, no colons). */
     val signerSha256: String,
-    /** Release notes (Markdown) by language (`zh`, `en`). */
+    /** Release notes (Markdown) by language (`ru`, `en`, `zh`). */
     val notes: Map<String, String>,
     val publishedAt: String?,
     /** The raw text, kept so a found update survives a process restart without a new fetch. */
@@ -38,7 +38,7 @@ data class UpdateManifest(
 
     companion object {
         const val FORMAT = 1L
-        private const val REPO = "jackwener/DSH-Android"
+        private const val REPO = "Strokln/Stroka"
 
         /**
          * Where `update.json` is fetched from, in order (first valid one wins, the next starts a few
