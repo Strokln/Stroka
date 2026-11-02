@@ -1,0 +1,38 @@
+name: Build Android from source
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: android-actions/setup-android@v3
+      - name: Fetch matching native libraries
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: native/prebuilt.sh fetch
+      - name: Build engine from lockfile
+        run: js/build-engine.sh
+      - name: Build APK and test locale configuration
+        run: |
+          ./gradlew :app:assembleRelease -Pdsh.nativeOut=../toolchains/out/jniLibs -Pdsh.engineOut=../toolchains/out/engine --stacktrace
+          ./gradlew :app:testReleaseUnitTest --tests '*LocalesConfigTest' -Pdsh.nativeOut=../toolchains/out/jniLibs -Pdsh.engineOut=../toolchains/out/engine --stacktrace
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dsh-0.3.7-ru.1-build
+          path: |
+            app/build/outputs/apk/release/*.apk
+            app/build/test-results/testReleaseUnitTest/*.xml
+            toolchains/out/engine/engine-version.txt
+            toolchains/out/engine/engine.sha256
+          if-no-files-found: error
