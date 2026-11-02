@@ -20,7 +20,7 @@ jobs:
       - name: Fetch matching native libraries
         env:
           GH_TOKEN: ${{ github.token }}
-        run: native/prebuilt.sh fetch
+        run: JNI_DIR="$PWD/toolchains/out/jniLibs" native/prebuilt.sh fetch
       - name: Build engine from lockfile
         run: js/build-engine.sh
       - name: Build APK and test locale configuration
