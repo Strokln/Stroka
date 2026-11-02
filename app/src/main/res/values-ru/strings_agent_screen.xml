@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="takeover_title">Нужно ваше участие</string>
+    <string name="takeover_start">Сделаю сам</string>
+    <string name="takeover_skip">Пропустить</string>
+    <string name="takeover_moved">Приложение открыто на вашем экране. Когда закончите, вернитесь сюда и нажмите «Готово».</string>
+    <string name="takeover_here">Выполните действие на телефоне, вернитесь сюда и нажмите «Готово».</string>
+    <string name="takeover_handled">Готово</string>
+    <string name="takeover_done_by_user">Я выполнил самостоятельно</string>
+    <string name="takeover_abort">Остановить</string>
+    <string name="takeover_kind_login">Вход</string>
+    <string name="takeover_kind_captcha">Капча</string>
+    <string name="takeover_kind_payment">Оплата</string>
+    <string name="takeover_kind_secure_page">Защищённая страница</string>
+    <string name="takeover_kind_choose">Ваш выбор</string>
+    <string name="takeover_kind_other">Другое</string>
+    <string name="tool_hand_to_user">Передать вам</string>
+    <string name="agent_screen_setting">Управлять приложениями на экране агента</string>
+    <string name="agent_screen_setting_desc">С Shizuku агент открывает приложения и работает с ними на отдельном невидимом экране, не занимая ваш</string>
+    <string name="agent_preview_working">Агент работает на своём экране</string>
+    <string name="agent_preview_open">Нажмите для просмотра</string>
+    <string name="agent_preview_take_over">Взять управление</string>
+    <string name="agent_preview_taken">Перенесено на ваш экран</string>
+    <string name="agent_preview_close">Закрыть</string>
+    <string name="agent_screen_doctor">Экран агента</string>
+    <string name="agent_screen_create_failed">Не удалось создать экран агента: %1$s</string>
+</resources>
