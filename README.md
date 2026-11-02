@@ -10,7 +10,7 @@
 
 Запускает [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (dsh) на Android: управляет приложениями, упорядочивает файлы, меняет системные настройки и выполняет автоматизации.
 
-[![Версия APK](https://img.shields.io/badge/APK-0.3.6--ru.1-4D6BFE?style=flat-square)](../../releases/latest)
+[![Версия APK](https://img.shields.io/badge/APK-0.3.7--ru.1-4D6BFE?style=flat-square)](../../releases/latest)
 ![Android](https://img.shields.io/badge/Android-10%2B-34A853?style=flat-square&logo=android&logoColor=white)
 ![Архитектура](https://img.shields.io/badge/ABI-arm64--v8a-555?style=flat-square)
 ![Движок](https://img.shields.io/badge/dsh-0.2.1%20%C2%B7%20Node%2024-4D6BFE?style=flat-square)
@@ -25,7 +25,9 @@
 <details>
 <summary><b>Версии и проверка русской сборки</b></summary>
 
-APK в Releases — локализованная пересборка предоставленного APK 0.3.6: `0.3.6-ru.1`, versionCode `26`. Исходники в этом репозитории основаны на 0.3.7: `0.3.7-ru.1`, versionCode `27`; в них переведены 1153 строки ресурсов и дополнительные подписи в коде. Опубликованный APK не является результатом сборки этих исходников 0.3.7.
+APK в Releases собран из исходников этого репозитория на базе DSH 0.3.7: версия `0.3.7-ru.1`, versionCode `27`. Исходники, нативные компоненты и пакет движка собраны через GitHub Actions. [Успешный запуск сборки](https://github.com/Strokln/Stroka/actions/runs/41410305714). Проверка регистрации языков, полноты 1153 русских строк ресурсов и параметров форматирования прошла.
+
+Предыдущий релиз `0.3.6-ru.1` остаётся доступен как локализованная пересборка APK 0.3.6. Новая 0.3.7-ru.1 подписана тем же личным ключом и имеет больший versionCode.
 
 Подпись APK и выравнивание проверены штатными инструментами Android SDK; проверены XML и параметры форматирования переводов. Установка, внешний вид и русский голосовой ввод на реальном телефоне пока не проверялись. Для распознавания речи нужна установленная служба Android с поддержкой русского. Контрольная сумма SHA-256 приложена к [релизу](../../releases/latest).
 
