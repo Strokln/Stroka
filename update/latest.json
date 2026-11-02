@@ -1,21 +1,21 @@
 {
   "format": 1,
   "packageName": "io.github.jackwener.dsh",
-  "versionCode": 27,
-  "versionName": "0.3.7-ru.1",
+  "versionCode": 28,
+  "versionName": "0.3.8-ru.1",
   "minSdk": 29,
   "apk": {
-    "name": "DSH-0.3.7-ru.1.apk",
+    "name": "DSH-0.3.8-ru.1.apk",
     "size": 100682091,
-    "sha256": "e4eeec8877e77fa30e9e42ac8b58fddd81c387d7c9bc4bc512e97a947c354871",
+    "sha256": "df10a0bef445a9e6cf3755ccc05c2ba04898f634d62bbdaaa5261ebf07f55bfc",
     "urls": [
-      "https://github.com/Strokln/Stroka/releases/download/v0.3.7-ru.1/DSH-0.3.7-ru.1.apk"
+      "https://github.com/Strokln/Stroka/releases/download/v0.3.8-ru.1/DSH-0.3.8-ru.1.apk"
     ]
   },
   "signerSha256": "a36e75295012cd85eac06a1a2fdfc7b224d579f394ffbd91ed8b5973a87bc269",
   "notes": {
-    "ru": "Уведомления по диалогам, управление уведомлениями и уточнённые состояния Shizuku.",
-    "en": "Conversation notifications, notification controls and clearer Shizuku states."
+    "ru": "### Автообновление\n\n- Проверка обновлений, загрузка APK и страница релизов теперь используют GitHub этого проекта.\n- Проверка при запуске остаётся автоматической, не чаще одного раза в сутки; ручная проверка доступна в настройках.\n- `update.json` содержит версию, размер APK, SHA-256, сертификат подписи и описание изменений на русском.\n- Сохранены проверка подписи и контрольной суммы, защита от установки старой версии, возобновление загрузки и подтверждение установки Android.\n\nВерсия `0.3.8-ru.1`, versionCode `28`. Основа приложения — 0.3.7 с настройкой собственного канала обновлений.\n\nДля перехода с 0.3.7-ru.1 установите этот APK вручную: прежняя версия ещё обращается к каналу автора. После установки 0.3.8-ru.1 новые выпуски будут проверяться в этом репозитории. Подпись сохранена; пакет совместим по подписи с 0.3.6-ru.1 и 0.3.7-ru.1. Поверх официальной версии с другой подписью установка не поддерживается.\n\nПроверка на реальном телефоне не выполнялась.",
+    "en": "### Automatic updates\n\n- Update checks, APK downloads and the releases page now use this project's GitHub repository.\n- Automatic checks run at most once per day; manual checks remain available in Settings.\n- Release manifests include the version, APK size, SHA-256, signing certificate and release notes.\n- Signature, checksum and version checks, resumable downloads and Android installation confirmation are preserved.\n\nVersion 0.3.8-ru.1, versionCode 28. Install this APK manually to switch from 0.3.7-ru.1, whose updater still points to the upstream repository. The signing key is unchanged. Not tested on a physical device."
   },
-  "publishedAt": "2026-11-02T08:34:47Z"
+  "publishedAt": "2026-11-02T08:45:05Z"
 }
